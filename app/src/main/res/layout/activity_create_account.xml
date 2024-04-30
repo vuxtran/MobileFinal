@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/Login"
+    android:background="@mipmap/login"
     android:orientation="vertical"
     android:padding="16dp"
     tools:ignore="ExtraText"> <!-- Replace with your background image -->
@@ -24,7 +24,7 @@
         android:textSize="16sp" />
 
     <EditText
-        android:id="@+id/editTextEmail"
+        android:id="@+id/edtEmail"
         android:layout_width="match_parent"
         android:layout_height="57dp"
         android:layout_marginTop="16dp"
@@ -44,7 +44,7 @@
         android:textSize="16sp" />
 
     <EditText
-        android:id="@+id/editTextPassword"
+        android:id="@+id/edtPassword"
         android:layout_width="match_parent"
         android:layout_height="57dp"
         android:layout_marginTop="16dp"
@@ -74,7 +74,7 @@
 
 
     <Button
-        android:id="@+id/buttonLogin"
+        android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="35dp"
