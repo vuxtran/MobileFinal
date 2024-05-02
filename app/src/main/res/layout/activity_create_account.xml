@@ -30,10 +30,10 @@
         android:layout_marginTop="16dp"
         android:background="@drawable/edt_background"
         android:gravity="center_vertical"
-        android:hint="Enter your email or phone number..."
+        android:hint="Enter your email..."
         android:inputType="textEmailAddress"
         android:paddingStart="8dp"
-        android:textColor="#FFFFFF" />
+        android:textColor="@color/black" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -62,7 +62,7 @@
         android:textSize="16sp" />
 
     <EditText
-        android:id="@+id/editTextPasswor"
+        android:id="@+id/edtConfirm"
         android:layout_width="match_parent"
         android:layout_height="57dp"
         android:layout_marginTop="16dp"
@@ -74,7 +74,7 @@
 
 
     <Button
-        android:id="@+id/btnLogin"
+        android:id="@+id/btnCreateAccount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="35dp"

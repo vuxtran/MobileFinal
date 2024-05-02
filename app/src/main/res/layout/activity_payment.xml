@@ -16,7 +16,7 @@
         <ImageView
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:src="" /> <!-- Replace with your actual VISA logo drawable -->
+            android:src="@color/common_google_signin_btn_text_dark_pressed" /> <!-- Replace with your actual VISA logo drawable -->
 
         <RadioButton
             android:layout_width="wrap_content"
