@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <!-- Top navigation bar -->
+    <RelativeLayout
+        android:id="@+id/top_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+
+            android:src="@mipmap/cart" />
+
+        <TextView
+            android:id="@+id/tvHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Embrace The Pure Scent Of Nature"
+            android:layout_centerInParent="true"
+            android:textSize="18sp"
+            android:textColor="#795942"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/btnSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:src="@mipmap/search"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            />
+    </RelativeLayout>
+
+    <!-- Product List Layout -->
+    <LinearLayout
+        android:id="@+id/productListLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/top_navigation"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Item 1 -->
+        <TextView
+            android:text="Accessibility"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:src="@mipmap/detailproduct"
+                android:layout_width="100dp"
+                android:layout_height="100dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingLeft="10dp">
+
+                <TextView
+                    android:text="YTVD's perfume is dedicated to operating
+responsible and is
+ motivated to build
+ an organization"
+                    android:textStyle="bold"
+                    android:textColor="#795942"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/black"
+            android:layout_marginTop="10dp"/>
+
+        <!-- Item 2 -->
+        <TextView
+            android:text="Sustainable practices"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:src="@mipmap/coco"
+                android:layout_width="100dp"
+                android:layout_height="100dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingLeft="10dp">
+
+                <TextView
+                    android:text="
+We always aim for
+ your confidence
+and trendy fragrance
+ will be our top priority"
+                    android:textStyle="bold"
+                    android:textColor="#795942"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/black"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:text="Journey"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:src="@mipmap/channelcologne"
+                android:layout_width="100dp"
+                android:layout_height="100dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingLeft="10dp">
+
+                <TextView
+                    android:text="While YTVD's Perfume
+ has always been committed
+ to creating an equitable
+world of goods."
+                    android:textStyle="bold"
+                    android:textColor="#795942"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/black"
+            android:layout_marginTop="10dp"/>
+
+        <Button
+            android:id="@+id/btnViewCart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ABOUT US"
+            android:layout_below="@id/productInfoLayout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:backgroundTint="@color/mainbutton"
+            android:textColor="#FFFFFF"/>
+
+        <!-- Shipping Info -->
+        <TextView
+            android:text="At YVTD'S Perfume, we believe that true beauty originates from the heart
+of nature. Our mission is to bring you high end perfume that  helps you feel confident
+at all times."
+            android:textStyle="bold"
+            android:textColor="#795942"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"/>
+
+        <!-- Checkout Button -->
+
+    </LinearLayout>
+
+    <!-- Bottom navigation -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="#000000"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@mipmap/homeicon" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@mipmap/bagicon" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@mipmap/heart" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@mipmap/admin" />
+    </LinearLayout>
+
+</RelativeLayout>
