@@ -3,6 +3,7 @@ package com.vutrannguyen_k214111980_k21411ca.finaltermmobile;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -47,6 +48,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         edtEmail = findViewById(R.id.edtEmail);
         progressBar = findViewById(R.id.progressBar);
         mAuth = FirebaseAuth.getInstance();
+        FirebaseAuth.getInstance().setLanguageCode("en");
     }
 
     private void addEvents() {
@@ -73,6 +75,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         }
 
         progressBar.setVisibility(View.VISIBLE);
+        btnReset.setVisibility(View.INVISIBLE);
 
         DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference("Account");
         Query query = usersRef.orderByChild("userName").equalTo(strEmail);
@@ -89,6 +92,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.e("DBError", "Database Error: " + databaseError.getMessage());
                 Toast.makeText(ForgotPasswordActivity.this, "Failed to access database: " + databaseError.getMessage(), Toast.LENGTH_LONG).show();
                 progressBar.setVisibility(View.INVISIBLE);
             }
@@ -99,6 +103,8 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         mAuth.sendPasswordResetEmail(strEmail)
                 .addOnSuccessListener(unused -> {
                     Toast.makeText(ForgotPasswordActivity.this, "Reset link sent to your email.", Toast.LENGTH_SHORT).show();
+                    progressBar.setVisibility(View.VISIBLE);
+                    btnReset.setVisibility(View.INVISIBLE);
                     startActivity(new Intent(ForgotPasswordActivity.this, LoginActivity.class));
                     finish();
                 })
