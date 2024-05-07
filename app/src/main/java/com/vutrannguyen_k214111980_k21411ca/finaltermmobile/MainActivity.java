@@ -48,7 +48,7 @@ Button btnGetStart;
             @Override
             public void onClick(View v) {
                 // Change the screen on button click
-                Intent intent = new Intent(MainActivity.this, PaymentActivity.class);
+                Intent intent = new Intent(MainActivity.this, HomeActivity.class);
                 startActivity(intent);
             }
         });

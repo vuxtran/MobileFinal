@@ -5,20 +5,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:title="Home"
+        android:id="@+id/item_home"
         android:icon="@drawable/ic_home"/>
     <item
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:title="Product"
+        android:id="@+id/item_product"
         android:icon="@drawable/ic_bag"/>
     <item
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:title="Wishlist"
+        android:id="@+id/item_wishlist"
         android:icon="@drawable/ic_heart"/>
     <item
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/item_account"
         android:title="Account"
         android:icon="@drawable/ic_person"/>
 </menu>
