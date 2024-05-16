@@ -9,33 +9,42 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="YVTD Perfume"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.FinalTermMobile"
+        android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".AccountActivity"
+            android:name=".SearchActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ProductDetailActivity"
             android:exported="false" />
+        <activity
+            android:name=".AccountActivity"
+            android:exported="true" />
         <activity
             android:name=".HomeActivity"
             android:exported="false" />
         <activity
             android:name=".WishlistActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ProductActivity"
-            android:exported="false" />
-        <activity
-            android:name=".CreateAccountActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ForgotPasswordActivity"
             android:exported="true" />
         <activity
+            android:name=".ProductActivity"
+            android:exported="true" />
+        <activity
+            android:name=".CreateAccountActivity"
+            android:exported="true"
+            android:theme="@style/Base.Theme.FinalTermMobile" />
+        <activity
+            android:name=".ForgotPasswordActivity"
+            android:exported="true"
+            android:theme="@style/Base.Theme.FinalTermMobile" />
+        <activity
             android:name=".LoginActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Base.Theme.FinalTermMobile">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -44,10 +53,15 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:theme="@style/Theme.Design.NoActionBar" />
         <activity
             android:name=".PaymentActivity"
             android:exported="false" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

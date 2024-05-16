@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "com.vutrannguyen_k214111980_k21411ca.finaltermmobile"
-        minSdk = 34
+        minSdk = 31
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"

@@ -5,4 +5,8 @@
     <color name="button">#E7E4E4</color>
     <color name="mainbutton">#9E7B61</color>
     <color name="theme">#ECEAEA</color>
+    <color name="purple">#FF3700B3</color>
+    <color name="tea">#FF03DAC5</color>
+    <color name="sea">#17577e</color>
+    <color name="red">#FF0000</color>
 </resources>
