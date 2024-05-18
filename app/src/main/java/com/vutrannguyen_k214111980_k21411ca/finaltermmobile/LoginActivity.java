@@ -24,7 +24,6 @@ public class LoginActivity extends AppCompatActivity {
     EditText edtEmail, edtPassword;
     Button btnLogin;
     TextView txtForgot, txtSignup;
-
     CheckBox chkSaveInfor;
 
     @Override
@@ -35,16 +34,25 @@ public class LoginActivity extends AppCompatActivity {
         addEvents();
     }
 
+    private void addViews() {
+        edtEmail = findViewById(R.id.edtEmail);
+        edtPassword = findViewById(R.id.edtPassword);
+        btnLogin = findViewById(R.id.btnLogin);  // Make sure this ID matches your layout
+        txtForgot = findViewById(R.id.txtForgot);
+        txtSignup = findViewById(R.id.txtSignup);
+        chkSaveInfor = findViewById(R.id.chkSaveInfor);
+    }
+
     private void addEvents() {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String userName = edtEmail.getText().toString();
+                String email = edtEmail.getText().toString();
                 String password = edtPassword.getText().toString();
-                login(userName, password);
-
+                login(email, password);
             }
         });
+
         txtSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,43 +60,44 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
         txtForgot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent2=new Intent(LoginActivity.this,ForgotPasswordActivity.class);
-                startActivity(intent2);
+                Intent intent = new Intent(LoginActivity.this, ForgotPasswordActivity.class);
+                startActivity(intent);
             }
         });
-
     }
 
-    private void login(final String userName, final String password) {
+    private void login(final String email, final String password) {
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Account");
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    boolean loginSuccessful = false;
+                boolean loginSuccessful = false;
+                String userId = null;
 
-                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                        Account account = snapshot.getValue(Account.class);
-                        assert account != null;
-                        if (account.getUserName().equals(userName) && account.getPassWord().equals(password)) {
-                            loginSuccessful = true;
-                            break;
-                        }
-                    }
-                    if (loginSuccessful) {
-                        Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                        // Intent to navigate to another activity after successful login
-                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                        startActivity(intent);
-                    } else {
-                        Toast.makeText(LoginActivity.this, "Login Failed: Invalid username or password", Toast.LENGTH_SHORT).show();
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    Account account = snapshot.getValue(Account.class);
+                    if (account != null && account.getEmail() != null && account.getEmail().equals(email) && account.getPassWord().equals(password)) {
+                        loginSuccessful = true;
+                        userId = account.getUserId();
+                        break;
                     }
                 }
-            }
 
+                if (loginSuccessful) {
+                    Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                    // Save the userId in SharedPreferences
+                    saveUserId(userId);
+                    // Intent to navigate to another activity after successful login
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(LoginActivity.this, "Login Failed: Invalid email or password", Toast.LENGTH_SHORT).show();
+                }
+            }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
@@ -97,21 +106,20 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private void addViews() {
-        edtEmail = findViewById(R.id.edtEmail);
-        edtPassword = findViewById(R.id.edtPassword);
-        btnLogin = findViewById(R.id.btnCreateAccount);
-        txtForgot = findViewById(R.id.txtForgot);
-        txtSignup = findViewById(R.id.txtSignup);
-        chkSaveInfor = findViewById(R.id.chkSaveInfor);
+    private void saveUserId(String userId) {
+        SharedPreferences sharedPreferences = getSharedPreferences("LoginPrefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("userId", userId);
+        editor.apply();
     }
+
     @Override
     protected void onPause() {
         super.onPause();
         if (chkSaveInfor.isChecked()) {
-            String userName = edtEmail.getText().toString();
+            String email = edtEmail.getText().toString();
             String password = edtPassword.getText().toString();
-            saveLoginInformation(userName, password);
+            saveLoginInformation(email, password);
         } else {
             clearLoginInformation();
         }
@@ -122,22 +130,24 @@ public class LoginActivity extends AppCompatActivity {
         super.onResume();
         loadLoginInformation();
     }
+
     private void loadLoginInformation() {
         SharedPreferences sharedPreferences = getSharedPreferences("LoginPrefs", MODE_PRIVATE);
-        String savedUserName = sharedPreferences.getString("userName", "");
+        String savedEmail = sharedPreferences.getString("email", "");
         String savedPassword = sharedPreferences.getString("password", "");
         boolean isSaved = sharedPreferences.getBoolean("saveLogin", false);
 
         if (isSaved) {
-            edtEmail.setText(savedUserName);
+            edtEmail.setText(savedEmail);
             edtPassword.setText(savedPassword);
             chkSaveInfor.setChecked(true);
         }
     }
-    private void saveLoginInformation(String userName, String password) {
+
+    private void saveLoginInformation(String email, String password) {
         SharedPreferences sharedPreferences = getSharedPreferences("LoginPrefs", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("userName", userName);
+        editor.putString("email", email);
         editor.putString("password", password);
         editor.putBoolean("saveLogin", true);
         editor.apply();
@@ -146,7 +156,7 @@ public class LoginActivity extends AppCompatActivity {
     private void clearLoginInformation() {
         SharedPreferences sharedPreferences = getSharedPreferences("LoginPrefs", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.remove("userName");
+        editor.remove("email");
         editor.remove("password");
         editor.putBoolean("saveLogin", false);
         editor.apply();

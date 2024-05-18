@@ -69,10 +69,12 @@ public class ProductActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int itemId = item.getItemId();
         if (itemId == R.id.search) {
-            // Add your search handling logic here
+            Intent searchIntent = new Intent(this, SearchActivity.class);
+            startActivity(searchIntent);
             return true;
         } else if (itemId == R.id.cart) {
-            // Add your cart handling logic here
+            Intent cartIntent = new Intent(this, CartActivity.class);
+            startActivity(cartIntent);
             return true;
         } else {
             return super.onOptionsItemSelected(item);

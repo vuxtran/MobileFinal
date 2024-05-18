@@ -16,6 +16,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".OrderMethodActivity"
+            android:exported="false" />
+        <activity
             android:name=".SearchActivity"
             android:exported="true" />
         <activity
@@ -57,6 +60,9 @@
             android:theme="@style/Theme.Design.NoActionBar" />
         <activity
             android:name=".PaymentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CartActivity"
             android:exported="false" />
 
         <meta-data

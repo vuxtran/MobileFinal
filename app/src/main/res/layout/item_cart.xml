@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/imv_ProductImage"
+        android:layout_width="0dp"
+        android:layout_height="120dp"
+        android:layout_weight="3"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_launcher"
+        android:layout_gravity="center_vertical" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="10dp"
+        android:layout_weight="11">
+
+        <TextView
+            android:id="@+id/txt_ProductName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="start"
+            android:text="Armaf Club De Nuit Intense For Man"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp">
+
+            <TextView
+                android:id="@+id/txt_ProductPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1,540.00"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true" />
+
+            <View
+                android:id="@+id/line_view"
+                android:layout_width="55dp"
+                android:layout_height="2dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/line"
+                android:rotation="-8" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/txt_SalePrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" 1,240.00"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="@color/red"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/txt_Inventory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Inventory: 10"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+    </LinearLayout>

@@ -58,7 +58,8 @@ public class HomeActivity extends AppCompatActivity {
             startActivity(searchIntent);
             return true;
         } else if (itemId == R.id.cart) {
-            // Add your cart handling logic here
+            Intent cartIntent = new Intent(this, CartActivity.class);
+            startActivity(cartIntent);
             return true;
         } else {
             return super.onOptionsItemSelected(item);
