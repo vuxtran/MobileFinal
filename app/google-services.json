@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "771060386382",
+    "project_id": "yvtd-database",
+    "storage_bucket": "yvtd-database.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:771060386382:android:940be0b4f808070b36911f",
+        "android_client_info": {
+          "package_name": "com.vutrannguyen_k214111980_k21411ca.finaltermmobile"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARsuLG2OCXSq47A2EaPT_mvSsHFYxx-Bo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
